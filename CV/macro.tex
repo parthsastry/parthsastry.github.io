@@ -1,0 +1,71 @@
+% import req basic packages
+\usepackage[dvipsnames]{xcolor}
+\usepackage[tracking=true]{microtype}
+\usepackage{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{hyperref}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{lineno}
+
+% modify section titles
+\usepackage{titlesec}
+\setcounter{secnumdepth}{0}
+\titleformat{\section}
+  {\Large \MakeLowercase}{\thesection}
+  {1em}{}[{\vspace{-10pt}\rule{\textwidth}{0.3pt}}]
+
+% configure table env
+\usepackage{array}
+\usepackage{tabularx}
+\newcolumntype{-}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
+  #1\ignorespaces
+}
+\newcommand{\T}{\rule{0pt}{2.5ex}}        % Top spacing
+\newcommand{\B}{\rule[-1.25ex]{0pt}{0pt}} % Bottom spacing
+
+% course markers
+\newcommand{\tobe}{\ddagger}  % to be completed
+\newcommand{\grad}{\ast}      % graduate level
+
+% project entry template
+\newcommand{\projectentry}[4]{
+    \begin{flushleft}
+        {\large#1} \hfill {\small#3} \\
+        \vspace{1ex}
+        {\small#2} \T\\
+        {#4}        
+    \end{flushleft}
+}
+
+% set symbol for itemize
+\newcommand{\arcangle}{%
+  \mathord{<\mspace{-9mu}\mathrel{)}\mspace{2mu}}%
+}
+\renewcommand{\labelitemi}{$\arcangle$}
+
+% colors for headings
+\definecolor{headred}{HTML}{bd1e1e}
+\definecolor{headorange}{HTML}{db8c0b}
+\definecolor{headyellow}{HTML}{dbb50b}
+\definecolor{headgreen}{HTML}{37820e}
+\definecolor{headmint}{HTML}{0da887}
+\definecolor{headblue}{HTML}{08289c}
+\definecolor{headviol}{HTML}{75089c}
+
+% reviews and notes
+\ifthenelse{\value{draft} > 0}
+{
+  \linenumbers
+  \newcommand{\note}[1]{\textcolor{OliveGreen}{$\left[\textnormal{S: #1}\right]$}}
+  \newcommand{\arpit}[1]{\textcolor{TealBlue}{$\left[\textnormal{A: #1}\right]$}}
+  \newcommand{\pushkar}[1]{\textcolor{WildStrawberry}{$\left[\textnormal{P: #1}\right]$}}
+}
+{
+  \newcommand{\note}[1]{}
+  \newcommand{\arpit}[1]{}
+  \newcommand{\pushkar}[1]{}
+}

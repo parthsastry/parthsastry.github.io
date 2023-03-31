@@ -1,0 +1,51 @@
+\documentclass[10pt, a4paper]{extarticle}
+\usepackage[utf8]{inputenc}
+
+% is draft? display comments and notes?
+\newcounter{draft}
+\setcounter{draft}{0}
+
+% include packages, set printing per config
+\input{macro}
+
+% choosing font
+\usepackage[T1]{fontenc}
+\usepackage{baskervillef}
+\usepackage[varqu,varl,var0]{inconsolata}
+\usepackage[scale=.95,type1]{cabin}
+\usepackage[baskerville,vvarbb]{newtxmath}
+\usepackage[cal=boondoxo]{mathalfa}
+
+\geometry{margin=1in, left=0.7in, right=0.7in}
+
+\begin{document}
+    
+    % Preamble
+    \input{sections/preamble}
+
+    % Education
+    \section{\textbf{\textcolor{headorange}{education}}}
+    \input{sections/education}
+
+    % Projects
+    \section{\textbf{\textcolor{headgreen}{research projects}}}
+    \input{sections/experience}
+
+    % Posters/Papers
+    \section{\textbf{\textcolor{headmint}{posters/papers}}}
+    \input{sections/papers}
+
+    % Outreach/Teaching
+    \section{\textbf{\textcolor{headblue}{outreach and teaching}}}
+    \input{sections/teaching}
+    
+    % Courses
+    \section{\textbf{\textcolor{headred}{courses}}}
+    \input{sections/courses}
+
+    % References
+    \section{\textbf{\textcolor{headviol}{references}}}
+    \input{sections/references}
+
+
+\end{document}
